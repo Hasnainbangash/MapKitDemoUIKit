@@ -37,6 +37,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="fX8-pp-FjP" id="vx8-HF-6Kl"/>
+                        <outlet property="profileImageView" destination="TmU-ft-wO7" id="cTy-aq-dGf"/>
+                        <outlet property="usernameLabel" destination="eG8-De-8KZ" id="Chu-hH-mhd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
