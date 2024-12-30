@@ -29,7 +29,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func setupProfileImage() {
         // Makes image circular
-        profileImageView.layer.cornerRadius = profileImageView.frame.width
+        profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
         profileImageView.clipsToBounds = true
     }
     
