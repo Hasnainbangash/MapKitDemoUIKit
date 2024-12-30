@@ -25,6 +25,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         setupProfileImage()
         setupLocationManager()
         
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            locationManager.startUpdatingLocation()
+        } else {
+            // Set map to the default location
+            setInitialMapLocation()
+        }
+        
     }
     
     func setupProfileImage() {
@@ -40,6 +47,27 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         // Start the location tracking
         locationManager.startUpdatingLocation()
     }
-
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let userLocation = locations.last else {return}
+        // Center the map on the user
+        let region = MKCoordinateRegion(
+            center: userLocation.coordinate,
+            latitudinalMeters: 5000,
+            longitudinalMeters: 5000
+        )
+        mapView.setRegion(region, animated: true)
+    }
+    
+    func setInitialMapLocation() {
+        let initialLocation = CLLocation(latitude: 49.254606, longitude: -123.217643)
+        let region = MKCoordinateRegion(
+            center: initialLocation.coordinate,
+            latitudinalMeters: 5000,
+            longitudinalMeters: 5000
+        )
+        mapView.setRegion(region, animated: true)
+    }
+    
 }
 
