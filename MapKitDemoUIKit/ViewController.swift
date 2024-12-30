@@ -9,7 +9,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -18,8 +18,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        setupProfileImage()
+        setupLocationManager()
+        
     }
-
+    
+    func setupProfileImage() {
+        
+    }
+    
+    func setupLocationManager() {
+        
+    }
 
 }
 
