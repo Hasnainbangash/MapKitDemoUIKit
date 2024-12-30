@@ -15,6 +15,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     
+    // init location Manager user coreLocation.
+    let locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -25,11 +28,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func setupProfileImage() {
-        
+        // Makes image circular
+        profileImageView.layer.cornerRadius = profileImageView.frame.width
+        profileImageView.clipsToBounds = true
     }
     
     func setupLocationManager() {
-        
+        locationManager.delegate = self
+        // Request the location from the user
+        locationManager.requestWhenInUseAuthorization()
+        // Start the location tracking
+        locationManager.startUpdatingLocation()
     }
 
 }
